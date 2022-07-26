@@ -3,7 +3,9 @@
     {
       "id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
       "title": "Post One",
-      "content": "Nulla irure enim exercitation ipsum occaecat est ipsum culpa consequat consectetur. Et enim excepteur laboris duis culpa eiusmod tempor. Duis dolore tempor non do et proident ut mollit. Ea nisi velit incididunt laborum veniam ex velit cupidatat."
+      "content": "Nulla irure enim exercitation ipsum occaecat est ipsum culpa consequat consectetur. Et enim excepteur laboris duis culpa eiusmod tempor. Duis dolore tempor non do et proident ut mollit. Ea nisi velit incididunt laborum veniam ex velit cupidatat.",
+      "createdAt": "Tue Jul 26 2022 18:21:09 GMT+0100 (GMT+02:00)",
+      "updatedAt": ""
     }
   ]
 }
