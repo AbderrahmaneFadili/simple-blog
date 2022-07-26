@@ -1,11 +1,12 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import NavBar from "./layout/NavBar/NavBar";
 
 function App() {
   return (
-    <Container className="py-4">
-      <h1 className="display-1 text-center">Hello world</h1>
-    </Container>
+    <>
+      <NavBar />
+    </>
   );
 }
 
