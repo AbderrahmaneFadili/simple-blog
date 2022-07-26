@@ -19,7 +19,7 @@ const Post: React.FC<PostProps> = ({
   image,
 }): JSX.Element => {
   return (
-    <Card className="bg-dark text-white">
+    <Card className="bg-dark text-white mb-5">
       <Card.Img style={{ opacity: 0.5 }} src={image} alt="Card image" />
       <Card.ImgOverlay>
         <Card.Title>{title}</Card.Title>
