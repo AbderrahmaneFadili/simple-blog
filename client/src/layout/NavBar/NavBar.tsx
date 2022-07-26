@@ -26,7 +26,7 @@ const NavBar = () => {
               <NavLink className="nav-link" to="/blog">
                 Blog
               </NavLink>
-              <NavLink className="nav-link" to="/add">
+              <NavLink className="nav-link" to="/new">
                 New post
               </NavLink>
             </Nav>
