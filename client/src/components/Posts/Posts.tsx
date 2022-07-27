@@ -1,65 +1,13 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
+import { Post as PostType } from "../../pages/types";
 import Post from "../Post/Post";
 
-const posts = [
-  {
-    id: 1,
-    title: "Post One",
-    description:
-      "Nulla irure enim exercitation ipsum occaecat est ipsum culpa consequat consectetur. Et enim excepteur laboris duis culpa eiusmod tempor. Duis dolore tempor non do et proident ut mollit. Ea nisi velit incididunt laborum veniam ex velit cupidatat.",
-    image: "https://source.unsplash.com/random/300x300/?book",
-    createdAt: "Tue Jul 26 2022 18:21:09 GMT+0100 (GMT+02:00)",
-    updatedAt: "",
-  },
-  {
-    id: 2,
-    title: "Post Two",
-    description:
-      "Nulla irure enim exercitation ipsum occaecat est ipsum culpa consequat consectetur. Et enim excepteur laboris duis culpa eiusmod tempor. Duis dolore tempor non do et proident ut mollit. Ea nisi velit incididunt laborum veniam ex velit cupidatat.",
-    image: "https://source.unsplash.com/random/300x300/?learn",
-    createdAt: "Tue Jul 26 2022 18:21:09 GMT+0100 (GMT+02:00)",
-    updatedAt: "",
-  },
-  {
-    id: 3,
-    title: "Post Three",
-    description:
-      "Nulla irure enim exercitation ipsum occaecat est ipsum culpa consequat consectetur. Et enim excepteur laboris duis culpa eiusmod tempor. Duis dolore tempor non do et proident ut mollit. Ea nisi velit incididunt laborum veniam ex velit cupidatat.",
-    image: "https://source.unsplash.com/random/300x300/?books",
-    createdAt: "Tue Jul 26 2022 18:21:09 GMT+0100 (GMT+02:00)",
-    updatedAt: "",
-  },
-  {
-    id: 4,
-    title: "Post One",
-    description:
-      "Nulla irure enim exercitation ipsum occaecat est ipsum culpa consequat consectetur. Et enim excepteur laboris duis culpa eiusmod tempor. Duis dolore tempor non do et proident ut mollit. Ea nisi velit incididunt laborum veniam ex velit cupidatat.",
-    image: "https://source.unsplash.com/random/300x300/?book",
-    createdAt: "Tue Jul 26 2022 18:21:09 GMT+0100 (GMT+02:00)",
-    updatedAt: "",
-  },
-  {
-    id: 5,
-    title: "Post Two",
-    description:
-      "Nulla irure enim exercitation ipsum occaecat est ipsum culpa consequat consectetur. Et enim excepteur laboris duis culpa eiusmod tempor. Duis dolore tempor non do et proident ut mollit. Ea nisi velit incididunt laborum veniam ex velit cupidatat.",
-    image: "https://source.unsplash.com/random/300x300/?learn",
-    createdAt: "Tue Jul 26 2022 18:21:09 GMT+0100 (GMT+02:00)",
-    updatedAt: "",
-  },
-  {
-    id: 6,
-    title: "Post Three",
-    description:
-      "Nulla irure enim exercitation ipsum occaecat est ipsum culpa consequat consectetur. Et enim excepteur laboris duis culpa eiusmod tempor. Duis dolore tempor non do et proident ut mollit. Ea nisi velit incididunt laborum veniam ex velit cupidatat.",
-    image: "https://source.unsplash.com/random/300x300/?books",
-    createdAt: "Tue Jul 26 2022 18:21:09 GMT+0100 (GMT+02:00)",
-    updatedAt: "",
-  },
-];
+type PostsProps = {
+  posts: PostType[];
+};
 
-const Posts = () => {
+const Posts: React.FC<PostsProps> = ({ posts }): JSX.Element => {
   return (
     <Row>
       {posts.map((post, i) => {
@@ -67,9 +15,8 @@ const Posts = () => {
           <Col key={i} md={4} className="mb-5">
             <Post
               id={post.id}
-              image={post.image}
               title={post.title}
-              description={post.description}
+              content={post.content}
               createdAt={post.createdAt}
               updatedAt={post.updatedAt}
             />
