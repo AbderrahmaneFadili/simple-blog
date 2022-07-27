@@ -34,8 +34,8 @@ const Post: React.FC<PostProps> = ({
         </Card.Text>
         <Card.Text>
           {updatedAt
-            ? moment(updatedAt).fromNow()
-            : moment(createdAt).fromNow()}
+            ? moment(new Date(updatedAt)).fromNow()
+            : moment(new Date(createdAt)).fromNow()}
         </Card.Text>
         <Button variant="primary">Read more</Button>
       </Card.Body>
