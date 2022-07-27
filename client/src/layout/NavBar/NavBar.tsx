@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const NavBar = () => {
   return (
     <Navbar bg="dark" expand={"sm"} className="mb-3 navbar-dark">
-      <Container fluid>
+      <Container>
         <NavLink to="/" className="navbar-brand">
           Blog
         </NavLink>

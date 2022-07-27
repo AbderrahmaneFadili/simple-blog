@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 import moment from "moment";
 
 type PostProps = {
@@ -19,9 +20,14 @@ const Post: React.FC<PostProps> = ({
   image,
 }): JSX.Element => {
   return (
-    <Card className="bg-dark text-white mb-5">
-      <Card.Img style={{ opacity: 0.5 }} src={image} alt="Card image" />
-      <Card.ImgOverlay>
+    <Card>
+      <Card.Img
+        style={{ height: 240, objectFit: "cover" }}
+        variant="top"
+        src={image}
+        alt="Card image"
+      />
+      <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>
           {description.substring(0, description.length / 2)}
@@ -31,7 +37,8 @@ const Post: React.FC<PostProps> = ({
             ? moment(updatedAt).fromNow()
             : moment(createdAt).fromNow()}
         </Card.Text>
-      </Card.ImgOverlay>
+        <Button variant="primary">Read more</Button>
+      </Card.Body>
     </Card>
   );
 };

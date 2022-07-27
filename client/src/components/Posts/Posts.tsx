@@ -64,7 +64,7 @@ const Posts = () => {
     <Row>
       {posts.map((post) => {
         return (
-          <Col key={post.id} md={4}>
+          <Col key={post.id} md={4} className="mb-5">
             <Post
               image={post.image}
               title={post.title}
