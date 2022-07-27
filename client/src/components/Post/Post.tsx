@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 type PostProps = {
   id?: number | string;
@@ -13,6 +13,7 @@ type PostProps = {
 };
 
 const Post: React.FC<PostProps> = ({
+  id,
   title,
   description,
   createdAt,
@@ -37,7 +38,9 @@ const Post: React.FC<PostProps> = ({
             ? moment(new Date(updatedAt)).fromNow()
             : moment(new Date(createdAt)).fromNow()}
         </Card.Text>
-        <Button variant="primary">Read more</Button>
+        <Link to={`/post/${id}`} className="btn btn-primary">
+          Read more
+        </Link>
       </Card.Body>
     </Card>
   );

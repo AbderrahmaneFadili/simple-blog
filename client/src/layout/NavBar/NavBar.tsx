@@ -6,7 +6,7 @@ const NavBar = () => {
     <Navbar bg="dark" expand={"sm"} className="mb-3 navbar-dark">
       <Container>
         <NavLink to="/" className="navbar-brand">
-          Blog
+          Simple Blog
         </NavLink>
         <Navbar.Toggle aria-controls="offcanvasNavbar-expand-sm" />
         <Navbar.Offcanvas
