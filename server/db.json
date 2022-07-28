@@ -62,6 +62,20 @@
       "content": "Post lorem content",
       "createdAt": "Thu Jul 28 2022 12:59:59 GMT+0100 (GMT+02:00)",
       "updatedAt": ""
+    },
+    {
+      "id": "ff18acc9-57d7-4c1b-b09d-ef99010a6bca",
+      "title": "Post Lorem new",
+      "content": "Post lorem new content",
+      "createdAt": "Thu Jul 28 2022 13:02:15 GMT+0100 (GMT+02:00)",
+      "updatedAt": ""
+    },
+    {
+      "id": "eed7ddc7-b876-4e0d-a5a0-eda668ad557b",
+      "title": "Text Text Post",
+      "content": "Text COntent Post",
+      "createdAt": "Thu Jul 28 2022 13:02:36 GMT+0100 (GMT+02:00)",
+      "updatedAt": ""
     }
   ]
 }

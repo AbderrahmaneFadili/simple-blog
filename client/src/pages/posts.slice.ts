@@ -4,7 +4,7 @@ import { Post } from '../pages/types';
 
 const postsApi = createApi({
     reducerPath: 'posts',
-    // tagTypes: ["posts"],
+    tagTypes: ["posts"],
     baseQuery: fetchBaseQuery({
         baseUrl: 'http://localhost:3006',
         headers: {
@@ -14,7 +14,7 @@ const postsApi = createApi({
     endpoints: (builder) => ({
         getPosts: builder.query<Post[], void>({
             query: () => '/posts',
-            //     providesTags: ['posts']
+            providesTags: ['posts']
         }),
         addNewPost: builder.mutation<Post, { post: Post }>({
             query: ({ post }) => ({
@@ -22,7 +22,7 @@ const postsApi = createApi({
                 method: 'POST',
                 body: post
             }),
-            //  invalidatesTags: ['posts']
+            invalidatesTags: ['posts']
         })
     })
 });

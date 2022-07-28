@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import { FormikProps, useFormik } from "formik";
 import * as Yup from "yup";
 import { ObjectShape } from "yup/lib/object";
-import { useAddNewPostMutation, useGetPostsQuery } from "../posts.slice";
+import { useAddNewPostMutation } from "../posts.slice";
 import { v4 as uuidv4 } from "uuid";
 import toast from "react-hot-toast";
 
@@ -14,7 +14,6 @@ type Values = {
 
 function NewPost() {
   const [addNewPost] = useAddNewPostMutation();
-  const { refetch } = useGetPostsQuery();
 
   const addPostFormik: FormikProps<Values> = useFormik<Values>({
     initialValues: {
@@ -39,7 +38,6 @@ function NewPost() {
         .unwrap()
         .then(() => {
           toast.success("One post is added");
-          refetch();
           addPostFormik.resetForm();
         })
         .catch(() => {
