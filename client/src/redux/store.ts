@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import postsApi from "../pages/posts.slice";
+import modal from '../components/Posts/Modal.slice';
 
 export const rootReducer = combineReducers({
-    [postsApi.reducerPath]: postsApi.reducer
+    [postsApi.reducerPath]: postsApi.reducer,
+    modal: modal,
 });
 
 export const store = configureStore({
@@ -13,4 +15,4 @@ export const store = configureStore({
 
 
 
-export type AppStat = ReturnType<typeof rootReducer>;
+export type AppState = ReturnType<typeof rootReducer>;

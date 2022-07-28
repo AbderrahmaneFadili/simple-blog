@@ -1,7 +1,12 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import { Button } from "react-bootstrap";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import { BsFillPencilFill, BsTrashFill } from "react-icons/bs";
+import { show } from "../Posts/Modal.slice";
+import { useDispatch } from "react-redux";
+import { bindActionCreators } from "@reduxjs/toolkit";
 
 type PostProps = {
   id?: number | string;
@@ -18,6 +23,14 @@ const Post: React.FC<PostProps> = ({
   createdAt,
   updatedAt,
 }): JSX.Element => {
+  const dispatch = useDispatch();
+
+  const modalActions = bindActionCreators({ show }, dispatch);
+
+  const modalShow = () => {
+    modalActions.show();
+  };
+
   return (
     <Card>
       <Card.Body>
@@ -28,9 +41,20 @@ const Post: React.FC<PostProps> = ({
             ? moment(new Date(updatedAt)).fromNow()
             : moment(new Date(createdAt)).fromNow()}
         </Card.Text>
-        <Link to={`/post/${id}`} className="btn btn-primary">
+        <Link to={`/post/${id}`} className="btn btn-secondary">
           Read more
         </Link>
+        <div
+          className="d-inline-flex justify-content-between"
+          style={{ position: "absolute", right: 16, width: 90 }}
+        >
+          <Button variant="primary">
+            <BsFillPencilFill style={{ cursor: "pointer" }} />
+          </Button>
+          <Button variant="danger" onClick={modalShow}>
+            <BsTrashFill style={{ cursor: "pointer" }} />
+          </Button>
+        </div>
       </Card.Body>
     </Card>
   );
