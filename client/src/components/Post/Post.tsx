@@ -4,9 +4,8 @@ import { Button } from "react-bootstrap";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import { BsFillPencilFill, BsTrashFill } from "react-icons/bs";
-import { show } from "../Posts/Modal.slice";
-import { useDispatch } from "react-redux";
-import { bindActionCreators } from "@reduxjs/toolkit";
+import { useDeletePostMutation } from "../../pages/posts.slice";
+import toast from "react-hot-toast";
 
 type PostProps = {
   id?: number | string;
@@ -23,12 +22,17 @@ const Post: React.FC<PostProps> = ({
   createdAt,
   updatedAt,
 }): JSX.Element => {
-  const dispatch = useDispatch();
+  const [deletePost] = useDeletePostMutation();
 
-  const modalActions = bindActionCreators({ show }, dispatch);
-
-  const modalShow = () => {
-    modalActions.show();
+  const removePost = () => {
+    deletePost({ id: id as string })
+      .unwrap()
+      .then(() => {
+        toast.success("Post is deleted");
+      })
+      .catch(() => {
+        toast.error("Post is not deleted");
+      });
   };
 
   return (
@@ -51,7 +55,7 @@ const Post: React.FC<PostProps> = ({
           <Button variant="primary">
             <BsFillPencilFill style={{ cursor: "pointer" }} />
           </Button>
-          <Button variant="danger" onClick={modalShow}>
+          <Button variant="danger" onClick={removePost}>
             <BsTrashFill style={{ cursor: "pointer" }} />
           </Button>
         </div>

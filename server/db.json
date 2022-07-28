@@ -8,13 +8,6 @@
       "updatedAt": ""
     },
     {
-      "id": "123123-3b7d-21312-9bdd-2b0d7b3dcb6d",
-      "title": "Post x",
-      "content": "Nulla irure enim exercitation ipsum occaecat est ipsum culpa consequat consectetur. Et enim excepteur laboris duis culpa eiusmod tempor. Duis dolore tempor non do et proident ut mollit. Ea nisi velit incididunt laborum veniam ex velit cupidatat.",
-      "createdAt": "Tue Jul 26 2022 18:21:09 GMT+0100 (GMT+02:00)",
-      "updatedAt": ""
-    },
-    {
       "id": "92841f10-804f-461c-a044-36f59983fbd9",
       "title": "Post Two",
       "content": "Post two content",
@@ -43,13 +36,6 @@
       "updatedAt": ""
     },
     {
-      "id": "3829d40f-9d4d-4040-a293-3e616df0c70e",
-      "title": "New post",
-      "content": "new post content",
-      "createdAt": "Thu Jul 28 2022 11:37:21 GMT+0100 (GMT+02:00)",
-      "updatedAt": ""
-    },
-    {
       "id": "3a9c150a-c918-4f10-b792-a3bc5e4dd924",
       "title": "My new post",
       "content": "my new post content\nmy new post content\nmy new post content\nmy new post content\nmy new post content\n",
@@ -64,17 +50,10 @@
       "updatedAt": ""
     },
     {
-      "id": "ff18acc9-57d7-4c1b-b09d-ef99010a6bca",
-      "title": "Post Lorem new",
-      "content": "Post lorem new content",
-      "createdAt": "Thu Jul 28 2022 13:02:15 GMT+0100 (GMT+02:00)",
-      "updatedAt": ""
-    },
-    {
-      "id": "eed7ddc7-b876-4e0d-a5a0-eda668ad557b",
-      "title": "Text Text Post",
-      "content": "Text COntent Post",
-      "createdAt": "Thu Jul 28 2022 13:02:36 GMT+0100 (GMT+02:00)",
+      "id": "f81785a5-2273-4e18-a531-e75a3fca0ece",
+      "title": "Post post post ",
+      "content": "post content content content content",
+      "createdAt": "Thu Jul 28 2022 16:33:56 GMT+0100 (GMT+02:00)",
       "updatedAt": ""
     }
   ]
