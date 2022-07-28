@@ -16,6 +16,10 @@ const postsApi = createApi({
             query: () => '/posts',
             providesTags: ['posts']
         }),
+        getOnePost: builder.query<Post, { id: string }>({
+            query: ({ id }) => `/posts/${id}`,
+            providesTags: ['posts']
+        }),
         addNewPost: builder.mutation<Post, { post: Post }>({
             query: ({ post }) => ({
                 url: '/posts',
@@ -29,11 +33,18 @@ const postsApi = createApi({
                 url: `/posts/${id}`,
                 method: 'DELETE',
             }), invalidatesTags: ['posts']
+        }),
+        updatePOst: builder.mutation<void, Post>({
+            query: (post) => ({
+                url: `/posts/${post.id}`,
+                method: "PUT",
+                body: post
+            }), invalidatesTags: ['posts']
         })
     })
 });
 
-export const { useGetPostsQuery, useAddNewPostMutation, useDeletePostMutation } = postsApi
+export const { useGetPostsQuery, useAddNewPostMutation, useDeletePostMutation, useGetOnePostQuery, useUpdatePOstMutation } = postsApi
 
 
 export default postsApi;

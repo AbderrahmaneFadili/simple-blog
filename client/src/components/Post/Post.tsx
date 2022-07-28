@@ -2,7 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import { Button } from "react-bootstrap";
 import moment from "moment";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, To } from "react-router-dom";
 import { BsFillPencilFill, BsTrashFill } from "react-icons/bs";
 import { useDeletePostMutation } from "../../pages/posts.slice";
 import toast from "react-hot-toast";
@@ -35,6 +35,10 @@ const Post: React.FC<PostProps> = ({
       });
   };
 
+  const navigate = useNavigate();
+
+  const to = (path: To) => navigate(path);
+
   return (
     <Card>
       <Card.Body>
@@ -42,7 +46,7 @@ const Post: React.FC<PostProps> = ({
         <Card.Text>{content.substring(0, content.length / 2)}</Card.Text>
         <Card.Text>
           {updatedAt
-            ? moment(new Date(updatedAt)).fromNow()
+            ? `${moment(new Date(updatedAt)).fromNow()} updated`
             : moment(new Date(createdAt)).fromNow()}
         </Card.Text>
         <Link to={`/post/${id}`} className="btn btn-secondary">
@@ -52,7 +56,7 @@ const Post: React.FC<PostProps> = ({
           className="d-inline-flex justify-content-between"
           style={{ position: "absolute", right: 16, width: 90 }}
         >
-          <Button variant="primary">
+          <Button variant="primary" onClick={() => to(`/post/edit/${id}`)}>
             <BsFillPencilFill style={{ cursor: "pointer" }} />
           </Button>
           <Button variant="danger" onClick={removePost}>

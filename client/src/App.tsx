@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Blog from "./pages/Blog/Blog";
 import NewPost from "./pages/NewPost/NewPost";
 import PostDetails from "./pages/PostDetails/PostDetails";
+import EditPost from "./pages/EditPost/EditPost";
 import Home from "./pages/Home/Home";
 import { Toaster } from "react-hot-toast";
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/new" element={<NewPost />} />
         <Route path="/post/:id" element={<PostDetails />} />
+        <Route path="/post/edit/:id" element={<EditPost />} />
       </Routes>
     </>
   );
