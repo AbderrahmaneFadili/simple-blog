@@ -1,27 +1,50 @@
-import React from "react";
 import { Button, Container } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { FormikProps, useFormik } from "formik";
 import * as Yup from "yup";
 import { ObjectShape } from "yup/lib/object";
+import { useAddNewPostMutation, useGetPostsQuery } from "../posts.slice";
+import { v4 as uuidv4 } from "uuid";
+import toast from "react-hot-toast";
 
 type Values = {
   title: string;
-  description: string;
+  content: string;
 };
 
 function NewPost() {
+  const [addNewPost] = useAddNewPostMutation();
+  const { refetch } = useGetPostsQuery();
+
   const addPostFormik: FormikProps<Values> = useFormik<Values>({
     initialValues: {
       title: "",
-      description: "",
+      content: "",
     },
     validationSchema: Yup.object<ObjectShape>({
       title: Yup.string().required("Post title is required !"),
-      description: Yup.string().required("Post description is required !"),
+      content: Yup.string().required("Post description is required !"),
     }),
     onSubmit: (values) => {
       console.log(values);
+      addNewPost({
+        post: {
+          id: uuidv4(),
+          title: values.title,
+          content: values.content,
+          createdAt: new Date().toString(),
+          updatedAt: "",
+        },
+      })
+        .unwrap()
+        .then(() => {
+          toast.success("One post is added");
+          refetch();
+          addPostFormik.resetForm();
+        })
+        .catch(() => {
+          toast.error("Add post is failed");
+        });
     },
   });
 
@@ -31,6 +54,7 @@ function NewPost() {
       <Form method="post" onSubmit={addPostFormik.handleSubmit}>
         <Form.Group>
           <Form.Control
+            id="title"
             name="title"
             onChange={addPostFormik.handleChange}
             onBlur={addPostFormik.handleBlur}
@@ -49,20 +73,20 @@ function NewPost() {
         <Form.Group className="mt-3">
           <Form.Control
             as="textarea"
-            name="description"
+            id="content"
+            name="content"
             onChange={addPostFormik.handleChange}
             onBlur={addPostFormik.handleBlur}
-            value={addPostFormik.values.description}
+            value={addPostFormik.values.content}
             size="lg"
             type="text"
-            placeholder="Post description"
+            placeholder="Post content"
             style={{ height: 200 }}
             className="mb-2"
           />
-          {addPostFormik.touched.description &&
-          addPostFormik.errors.description ? (
+          {addPostFormik.touched.content && addPostFormik.errors.content ? (
             <Form.Text className="text-danger">
-              {addPostFormik.errors.description}
+              {addPostFormik.errors.content}
             </Form.Text>
           ) : null}
         </Form.Group>

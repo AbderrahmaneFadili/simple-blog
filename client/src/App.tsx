@@ -5,10 +5,12 @@ import Blog from "./pages/Blog/Blog";
 import NewPost from "./pages/NewPost/NewPost";
 import PostDetails from "./pages/PostDetails/PostDetails";
 import Home from "./pages/Home/Home";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <>
+      <Toaster />
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />

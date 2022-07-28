@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Posts from "../../components/Posts/Posts";
 import { useGetPostsQuery } from "../posts.slice";
 import Spinner from "react-bootstrap/Spinner";
+import _ from "lodash";
 
 const Blog = () => {
   const { isFetching, data } = useGetPostsQuery();
+
+  useEffect(() => {
+    console.log("Blog mounted");
+  }, []);
 
   console.log(data);
   return (
@@ -26,7 +31,7 @@ const Blog = () => {
           />
         </div>
       )}
-      {data && <Posts posts={data} />}
+      {data && <Posts posts={_.orderBy(data, ["id"], ["desc"])} />}
     </Container>
   );
 };
